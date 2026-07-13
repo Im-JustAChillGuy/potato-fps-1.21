@@ -1,12 +1,3 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  com.terraformersmc.modmenu.api.ConfigScreenFactory
- *  com.terraformersmc.modmenu.api.ModMenuApi
- *  net.fabricmc.api.EnvType
- *  net.fabricmc.api.Environment
- */
 package com.example.potatofps;
 
 import com.example.potatofps.PotatoConfigScreen;
