@@ -16,12 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(EntityRenderer.class)
 public class EntityRenderMixin<T extends Entity> {
 
-    // NOTE: retargeted onto shouldRender() -- in current 1.21.11 EntityRenderer.render()
-    // no longer takes an entity/x/y/z directly (it now renders from a pre-built
-    // EntityRenderState), so the original render()-based cull can't be expressed the
-    // same way anymore. shouldRender() still gets entity + camera position and is the
-    // natural place to do a distance-based cull; returning false here skips the entity
-    // before Minecraft even builds a render state for it, which is at least as cheap.
     @Inject(method = "shouldRender", at = @At("HEAD"), cancellable = true)
     private void potatofps$cancelFarEntities(T entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
         MinecraftClient client = MinecraftClient.getInstance();
@@ -33,5 +27,4 @@ public class EntityRenderMixin<T extends Entity> {
             cir.setReturnValue(false);
         }
     }
-}
 }
