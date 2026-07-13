@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "package": "com.example.potatofps.mixin",
+  "client": [
+    "ExampleMixin",
+    "EntityRenderMixin"
+  ]
+}

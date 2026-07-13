@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "potato-fps",
+	"version": "1.0.2",
+	"name": "Potato FPS",
+	"description": "Changes render and simulation distance when FPS drops for MUCH smoother gameplay.",
+	"authors": [
+		"JustAChillGuy"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/potato-fps/icon.png",
+	"environment": "client",
+	"entrypoints": {
+  "client": [
+    "com.example.potatofps.PotatoFpsMod"
+  ],
+  "modmenu": [
+    "com.example.potatofps.PotatoModMenu"
+  ]
+},
+	"mixins": [
+		"potato-fps.mixins.json"
+	 ],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+  "cloth-config2": "*",
+  "modmenu": "*"
+}
+}
