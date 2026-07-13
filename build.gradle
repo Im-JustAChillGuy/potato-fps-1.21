@@ -13,8 +13,20 @@ base {
 repositories {
 	// Cloth Config
 	maven { url "https://maven.shedaniel.me/" }
-	// Mod Menu
-	maven { url "https://maven.terraformersmc.com/" }
+
+	// Modrinth maven mirror — used for Mod Menu (more reliable than
+	// maven.terraformersmc.com, which was timing out mid-download)
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
 }
 
 loom {
@@ -41,8 +53,8 @@ dependencies {
 		exclude group: "net.fabricmc.fabric-api"
 	}
 
-	// Mod Menu
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+	// Mod Menu — via Modrinth maven (project id mOgUt4GM, version Tyk71iSw = 17.0.0)
+	modImplementation "maven.modrinth:mOgUt4GM:${project.modmenu_version}"
 }
 
 processResources {
